@@ -1,4 +1,5 @@
 #pragma once
+#include "Item.h"
 class FIFO
 {
 public:
@@ -6,5 +7,8 @@ public:
 	~FIFO();
 	void push(int);
 	int pull(void);
+
+private:
+	Item * last;
 };
 

@@ -18,7 +18,7 @@ int main(void) {
 	catch (const char* msg) {
 		cout << msg;
 	}
-
+	//comment
 	system("pause");
 
 	return 0;

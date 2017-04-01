@@ -9,6 +9,6 @@ public:
 	int pull(void);
 
 private:
-	Item * last;
+	Item * actual;
 };
 

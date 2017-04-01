@@ -1,6 +1,6 @@
 #include "FIFO.h"
 
-
+using namespace std;
 
 FIFO::FIFO()
 {
@@ -9,20 +9,24 @@ FIFO::FIFO()
 
 FIFO::~FIFO()
 {
+	//this->actual = nullptr;
 }
 
 void FIFO::push(int elem)
 {
-	Item * item = new Item(this->last, elem);
-	this->last = item;
+	Item * item = new Item(this->actual, elem);
+	this->actual = item;
 }
 
 int FIFO::pull(void)
 {
 	int elem;
-	Item * privateLast = this->last;
+	if (this->actual == 0) {
+		throw "stack ended";
+	}
+	Item * privateLast = this->actual;
 	elem = privateLast->value;
-	this->last = privateLast->prev;
+	this->actual = privateLast->prev;
 	delete privateLast;
 	return elem;
 }

@@ -20,7 +20,9 @@ void FIFO::push(int elem)
 int FIFO::pull(void)
 {
 	int elem;
-	elem = last->value;
-	this->last = last->prev;
+	Item * privateLast = this->last;
+	elem = privateLast->value;
+	this->last = privateLast->prev;
+	delete privateLast;
 	return elem;
 }

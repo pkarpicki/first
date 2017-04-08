@@ -1,5 +1,5 @@
 #pragma once
-#include "Item.h"
+#include "FIFOItem.h"
 class FIFO
 {
 public:
@@ -9,6 +9,6 @@ public:
 	int pull(void);
 
 private:
-	Item * actual;
+	FIFOItem * actual;
 };
 

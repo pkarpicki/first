@@ -14,7 +14,7 @@ FIFO::~FIFO()
 
 void FIFO::push(int elem)
 {
-	Item * item = new Item(this->actual, elem);
+	FIFOItem * item = new FIFOItem(this->actual, elem);
 	this->actual = item;
 }
 
@@ -24,7 +24,7 @@ int FIFO::pull(void)
 	if (this->actual == 0) {
 		throw "stack ended";
 	}
-	Item * privateLast = this->actual;
+	FIFOItem * privateLast = this->actual;
 	elem = privateLast->value;
 	this->actual = privateLast->prev;
 	delete privateLast;

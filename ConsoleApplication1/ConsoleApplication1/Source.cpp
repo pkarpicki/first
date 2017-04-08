@@ -1,28 +1,53 @@
 #include <windows.h>
 #include <iostream>
-#include "FIFO.h"
+#include "Stack.h"
+#include "Queue.h"
 
 using namespace std;
 
 
-void runFifo() {
-	try {
-		FIFO * fifo = new FIFO();
-		fifo->push(1);
-		fifo->push(2);
-		fifo->push(3);
-		cout << fifo->pull() << endl;
-		cout << fifo->pull() << endl;
-		cout << fifo->pull() << endl;
-		cout << fifo->pull() << endl;
+void runStack()
+{
+	try
+	{
+		Stack * stack = new Stack();
+		stack->push(1);
+		stack->push(2);
+		stack->push(3);
+		cout << stack->pull() << endl;
+		cout << stack->pull() << endl;
+		cout << stack->pull() << endl;
+		cout << stack->pull() << endl;
 	}
-	catch (const char* msg) {
+	catch (const char* msg)
+	{
 		cout << msg << endl;
 	}
 }
 
-int main(void) {
-	runFifo();
+void runQueue()
+{
+	try
+	{
+		Queue * queue = new Queue();
+		queue->push(4);
+		queue->push(5);
+		queue->push(6);
+		cout << queue->pull() << endl;
+		cout << queue->pull() << endl;
+		cout << queue->pull() << endl;
+		cout << queue->pull() << endl;
+	}
+	catch (const char* msg)
+	{
+		cout << msg << endl;
+	}
+}
+
+int main(void)
+{
+	runStack();
+	runQueue();
 	system("pause");
 
 	return 0;
